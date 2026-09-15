@@ -24,12 +24,7 @@ import { useEffect, useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { galleryItems, images } from "@/data/images";
-import {
-  mapsDirectionsUrl,
-  mapsEmbedSrc,
-  pricingTiers,
-  venue,
-} from "@/data/venue";
+import { mapsDirectionsUrl, mapsEmbedSrc, pricingTiers, venue } from "@/data/venue";
 import { cn } from "@/lib/utils";
 
 import { HeroVideo } from "./HeroVideo";
@@ -42,13 +37,7 @@ const hallInitialFont = Tangerine({
   display: "swap",
 });
 
-function HallCardName({
-  name,
-  featured = false,
-}: {
-  name: string;
-  featured?: boolean;
-}) {
+function HallCardName({ name, featured = false }: { name: string; featured?: boolean }) {
   const [initials, ...rest] = name.split(" ");
   const hallText = rest.join(" ");
 
@@ -57,7 +46,7 @@ function HallCardName({
       <span
         className={cn(
           hallInitialFont.className,
-          "text-5xl font-bold leading-[0.78] tracking-normal text-gold"
+          "text-5xl font-bold leading-[0.78] tracking-normal text-gold",
         )}
       >
         {initials}
@@ -66,7 +55,7 @@ function HallCardName({
         <span
           className={cn(
             "pb-1 text-2xl font-medium leading-none tracking-normal",
-            featured ? "text-ivory" : "text-ink"
+            featured ? "text-ivory" : "text-ink",
           )}
         >
           {hallText}
@@ -115,13 +104,7 @@ const blessings = [
    EVENT TAGS
 ========================================================= */
 
-const eventTags = [
-  "Weddings",
-  "Receptions",
-  "Sangeet",
-  "Corporate",
-  "Festivals",
-];
+const eventTags = ["Weddings", "Receptions", "Sangeet", "Corporate", "Festivals"];
 
 const landingCarouselImages = [
   {
@@ -391,12 +374,7 @@ const halls = [
     image:
       "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=80",
 
-    features: [
-      "Grand Stage",
-      "Bridal Suite",
-      "Valet",
-      "Catering",
-    ],
+    features: ["Grand Stage", "Bridal Suite", "Valet", "Catering"],
 
     gallery: [
       "https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1600&q=85",
@@ -421,12 +399,7 @@ const halls = [
     image:
       "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80",
 
-    features: [
-      "Stage",
-      "Chandeliers",
-      "Dining",
-      "Pre-Function",
-    ],
+    features: ["Stage", "Chandeliers", "Dining", "Pre-Function"],
 
     gallery: [
       "https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1600&q=85",
@@ -451,12 +424,7 @@ const halls = [
     image:
       "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=80",
 
-    features: [
-      "Stage",
-      "Lounge",
-      "Photography",
-      "Catering",
-    ],
+    features: ["Stage", "Lounge", "Photography", "Catering"],
 
     gallery: [
       "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1600&q=85",
@@ -481,12 +449,7 @@ const halls = [
     image:
       "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=1200&q=80",
 
-    features: [
-      "Party Setup",
-      "Music",
-      "Dining",
-      "Decoration",
-    ],
+    features: ["Party Setup", "Music", "Dining", "Decoration"],
 
     gallery: [
       "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=1600&q=85",
@@ -610,12 +573,9 @@ const packages = [
    PACKAGE PRICES
 ========================================================= */
 
-const packagePrices = new Map(
-  pricingTiers.map((tier) => [tier.name, tier.price])
-);
+const packagePrices = new Map(pricingTiers.map((tier) => [tier.name, tier.price]));
 
-const inr = (price: number) =>
-  `₹${price.toLocaleString("en-IN")}`;
+const inr = (price: number) => `₹${price.toLocaleString("en-IN")}`;
 
 /* =========================================================
    STORIES
@@ -654,18 +614,11 @@ const stories = [
    ORNAMENT
 ========================================================= */
 
-function Ornament({
-  className,
-}: {
-  className?: string;
-}) {
+function Ornament({ className }: { className?: string }) {
   return (
     <div
       aria-hidden="true"
-      className={cn(
-        "flex items-center justify-center gap-2 text-gold",
-        className
-      )}
+      className={cn("flex items-center justify-center gap-2 text-gold", className)}
     >
       <Sparkles className="h-4 w-4" />
 
@@ -702,7 +655,7 @@ function Intro({
       <h2
         className={cn(
           "mt-3 text-3xl leading-[1.15] sm:text-4xl lg:text-5xl",
-          light ? "text-ivory" : "text-foreground"
+          light ? "text-ivory" : "text-foreground",
         )}
       >
         {title}
@@ -714,9 +667,7 @@ function Intro({
         <p
           className={cn(
             "mt-5 text-base leading-relaxed",
-            light
-              ? "text-ivory/70"
-              : "text-muted-foreground"
+            light ? "text-ivory/70" : "text-muted-foreground",
           )}
         >
           {description}
@@ -730,20 +681,13 @@ function Intro({
    HERO
 ========================================================= */
 
-export function DivineHero({
-  video = false,
-}: {
-  video?: boolean;
-}) {
+export function DivineHero({ video = false }: { video?: boolean }) {
   if (video) {
     return <HeroVideo poster={images.hero} />;
   }
 
   return (
-    <section
-      id="home"
-      className="relative min-h-screen overflow-hidden"
-    >
+    <section id="home" className="relative min-h-screen overflow-hidden">
       <img
         src={images.hero}
         alt=""
@@ -770,9 +714,7 @@ export function DivineHero({
                   </span>
 
                   <span>
-                    <span className="block font-display text-xl text-ivory">
-                      {item.deity}
-                    </span>
+                    <span className="block font-display text-xl text-ivory">{item.deity}</span>
 
                     <span className="text-xs uppercase tracking-[0.18em] text-ivory/55">
                       {item.meaning}
@@ -784,9 +726,7 @@ export function DivineHero({
           </div>
 
           <div className="order-1 text-center lg:order-2">
-            <p className="eyebrow">
-              Bangalore South&apos;s Most Celebrated Event Destination
-            </p>
+            <p className="eyebrow">Bangalore South&apos;s Most Celebrated Event Destination</p>
 
             <h1 className="mt-6 text-6xl leading-none text-ivory sm:text-7xl lg:text-8xl">
               Venus <span className="text-gold">Park</span>
@@ -797,9 +737,8 @@ export function DivineHero({
             </p>
 
             <p className="mx-auto mt-7 max-w-2xl text-lg leading-relaxed text-ivory/76">
-              Where the colours of South India&apos;s festivals meet
-              the elegance of every cherished celebration - your most
-              divine moments begin here.
+              Where the colours of South India&apos;s festivals meet the elegance of every cherished
+              celebration - your most divine moments begin here.
             </p>
 
             <div className="mt-10 flex flex-wrap justify-center gap-3">
@@ -810,11 +749,7 @@ export function DivineHero({
                 </Link>
               </Button>
 
-              <Button
-                asChild
-                variant="outlineLight"
-                size="xl"
-              >
+              <Button asChild variant="outlineLight" size="xl">
                 <a href="#halls">Explore Venue</a>
               </Button>
             </div>
@@ -850,8 +785,7 @@ export function DivineHero({
 ========================================================= */
 
 export function Pavilions() {
-  const [activeHall, setActiveHall] =
-    useState<string | null>(null);
+  const [activeHall, setActiveHall] = useState<string | null>(null);
 
   const [activeImage, setActiveImage] = useState(0);
 
@@ -860,9 +794,7 @@ export function Pavilions() {
     name: event.title,
   }));
 
-  const selectedHall = [...celebrationEvents, ...halls].find(
-    (event) => event.name === activeHall
-  );
+  const selectedHall = [...celebrationEvents, ...halls].find((event) => event.name === activeHall);
 
   const galleryImages = selectedHall?.gallery ?? [];
 
@@ -896,16 +828,10 @@ export function Pavilions() {
       }
     };
 
-    window.addEventListener(
-      "keydown",
-      handleEscape
-    );
+    window.addEventListener("keydown", handleEscape);
 
     return () => {
-      window.removeEventListener(
-        "keydown",
-        handleEscape
-      );
+      window.removeEventListener("keydown", handleEscape);
     };
   }, []);
 
@@ -933,9 +859,7 @@ export function Pavilions() {
 
   const previousImage = () => {
     setActiveImage((current) => {
-      return current === 0
-        ? galleryImages.length - 1
-        : current - 1;
+      return current === 0 ? galleryImages.length - 1 : current - 1;
     });
   };
 
@@ -945,9 +869,7 @@ export function Pavilions() {
 
   const nextImage = () => {
     setActiveImage((current) => {
-      return (
-        (current + 1) % galleryImages.length
-      );
+      return (current + 1) % galleryImages.length;
     });
   };
 
@@ -969,9 +891,7 @@ export function Pavilions() {
             {pavilionEvents.map((event) => (
               <li
                 key={event.title}
-                onClick={() =>
-                  openGallery(event.title)
-                }
+                onClick={() => openGallery(event.title)}
                 className="
                   group
                   grid
@@ -1051,11 +971,10 @@ export function Pavilions() {
                   </p>
 
                   <div className="mt-5 flex max-w-[300px] flex-wrap justify-center gap-2">
-                    {event.features.map(
-                      (feature) => (
-                        <span
-                          key={feature}
-                          className="
+                    {event.features.map((feature) => (
+                      <span
+                        key={feature}
+                        className="
                             border
                             border-border
                             bg-sand
@@ -1067,11 +986,10 @@ export function Pavilions() {
                             tracking-[0.2em]
                             text-muted-foreground
                           "
-                        >
-                          {feature}
-                        </span>
-                      )
-                    )}
+                      >
+                        {feature}
+                      </span>
+                    ))}
                   </div>
 
                   <div
@@ -1088,7 +1006,6 @@ export function Pavilions() {
                     "
                   >
                     Explore {event.title}
-
                     <ArrowRight
                       size={15}
                       className="
@@ -1110,14 +1027,9 @@ export function Pavilions() {
 
         <div className="mx-auto mt-14 grid max-w-7xl gap-6 md:grid-cols-2">
           {halls.map((hall, index) => (
-            <Reveal
-              key={hall.name}
-              index={index % 4}
-            >
+            <Reveal key={hall.name} index={index % 4}>
               <article
-                onClick={() =>
-                  openGallery(hall.name)
-                }
+                onClick={() => openGallery(hall.name)}
                 className="
                   group
                   grid
@@ -1219,11 +1131,10 @@ export function Pavilions() {
                   {/* FEATURES */}
 
                   <div className="mt-5 flex max-w-[300px] flex-wrap justify-center gap-2">
-                    {hall.features.map(
-                      (feature) => (
-                        <span
-                          key={feature}
-                          className="
+                    {hall.features.map((feature) => (
+                      <span
+                        key={feature}
+                        className="
                             border
                             border-border
                             bg-sand
@@ -1235,11 +1146,10 @@ export function Pavilions() {
                             tracking-[0.2em]
                             text-muted-foreground
                           "
-                        >
-                          {feature}
-                        </span>
-                      )
-                    )}
+                      >
+                        {feature}
+                      </span>
+                    ))}
                   </div>
 
                   {/* EXPLORE */}
@@ -1258,7 +1168,6 @@ export function Pavilions() {
                     "
                   >
                     Explore {hall.name}
-
                     <ArrowRight
                       size={15}
                       className="
@@ -1279,11 +1188,7 @@ export function Pavilions() {
         ================================================= */}
 
         <div className="mt-12 text-center">
-          <Button
-            asChild
-            variant="outline"
-            size="lg"
-          >
+          <Button asChild variant="outline" size="lg">
             <Link href="/booking">
               Enquire About a Hall
               <ArrowRight />
@@ -1296,11 +1201,9 @@ export function Pavilions() {
           FULL SCREEN GALLERY POPUP
       ===================================================== */}
 
-      {activeHall &&
-        selectedHall &&
-        galleryImages.length > 0 && (
-          <div
-            className="
+      {activeHall && selectedHall && galleryImages.length > 0 && (
+        <div
+          className="
               fixed
               inset-0
               z-[9999]
@@ -1312,12 +1215,12 @@ export function Pavilions() {
               backdrop-blur-md
               sm:p-6
             "
-            onClick={closeGallery}
-          >
-            {/* POPUP */}
+          onClick={closeGallery}
+        >
+          {/* POPUP */}
 
-            <div
-              className="
+          <div
+            className="
                 relative
                 w-full
                 max-w-6xl
@@ -1326,17 +1229,15 @@ export function Pavilions() {
                 bg-black
                 shadow-[0_30px_100px_rgba(0,0,0,0.7)]
               "
-              onClick={(event) =>
-                event.stopPropagation()
-              }
-            >
-              {/* CLOSE */}
+            onClick={(event) => event.stopPropagation()}
+          >
+            {/* CLOSE */}
 
-              <button
-                type="button"
-                onClick={closeGallery}
-                aria-label="Close gallery"
-                className="
+            <button
+              type="button"
+              onClick={closeGallery}
+              aria-label="Close gallery"
+              className="
                   absolute
                   right-4
                   top-4
@@ -1358,14 +1259,14 @@ export function Pavilions() {
                   hover:bg-white
                   hover:text-black
                 "
-              >
-                <X size={20} />
-              </button>
+            >
+              <X size={20} />
+            </button>
 
-              {/* TITLE */}
+            {/* TITLE */}
 
-              <div
-                className="
+            <div
+              className="
                   absolute
                   left-5
                   top-5
@@ -1383,14 +1284,14 @@ export function Pavilions() {
                   text-white
                   backdrop-blur-md
                 "
-              >
-                {selectedHall.name}
-              </div>
+            >
+              {selectedHall.name}
+            </div>
 
-              {/* MAIN IMAGE */}
+            {/* MAIN IMAGE */}
 
-              <div
-                className="
+            <div
+              className="
                   relative
                   h-[70vh]
                   min-h-[400px]
@@ -1398,23 +1299,23 @@ export function Pavilions() {
                   overflow-hidden
                   sm:h-[75vh]
                 "
-              >
-                <img
-                  key={galleryImages[activeImage]}
-                  src={galleryImages[activeImage]}
-                  alt={`${selectedHall.name} celebration`}
-                  className="
+            >
+              <img
+                key={galleryImages[activeImage]}
+                src={galleryImages[activeImage]}
+                alt={`${selectedHall.name} celebration`}
+                className="
                     h-full
                     w-full
                     object-cover
                     animate-gallery-slide
                   "
-                />
+              />
 
-                {/* OVERLAY */}
+              {/* OVERLAY */}
 
-                <div
-                  className="
+              <div
+                className="
                     pointer-events-none
                     absolute
                     inset-0
@@ -1423,16 +1324,16 @@ export function Pavilions() {
                     via-transparent
                     to-black/20
                   "
-                />
-              </div>
+              />
+            </div>
 
-              {/* PREVIOUS */}
+            {/* PREVIOUS */}
 
-              <button
-                type="button"
-                onClick={previousImage}
-                aria-label="Previous image"
-                className="
+            <button
+              type="button"
+              onClick={previousImage}
+              aria-label="Previous image"
+              className="
                   absolute
                   left-3
                   top-1/2
@@ -1458,17 +1359,17 @@ export function Pavilions() {
                   sm:h-12
                   sm:w-12
                 "
-              >
-                <ArrowLeft size={20} />
-              </button>
+            >
+              <ArrowLeft size={20} />
+            </button>
 
-              {/* NEXT */}
+            {/* NEXT */}
 
-              <button
-                type="button"
-                onClick={nextImage}
-                aria-label="Next image"
-                className="
+            <button
+              type="button"
+              onClick={nextImage}
+              aria-label="Next image"
+              className="
                   absolute
                   right-3
                   top-1/2
@@ -1494,14 +1395,14 @@ export function Pavilions() {
                   sm:h-12
                   sm:w-12
                 "
-              >
-                <ArrowRight size={20} />
-              </button>
+            >
+              <ArrowRight size={20} />
+            </button>
 
-              {/* BOTTOM CONTROLS */}
+            {/* BOTTOM CONTROLS */}
 
-              <div
-                className="
+            <div
+              className="
                   absolute
                   bottom-0
                   left-0
@@ -1518,49 +1419,40 @@ export function Pavilions() {
                   pb-5
                   pt-16
                 "
-              >
-                {/* COUNTER */}
+            >
+              {/* COUNTER */}
 
-                <span
-                  className="
+              <span
+                className="
                     text-xs
                     uppercase
                     tracking-[0.2em]
                     text-white/70
                   "
-                >
-                  {activeImage + 1} /{" "}
-                  {galleryImages.length}
-                </span>
+              >
+                {activeImage + 1} / {galleryImages.length}
+              </span>
 
-                {/* DOTS */}
+              {/* DOTS */}
 
-                <div className="flex items-center gap-2">
-                  {galleryImages.map(
-                    (_, index) => (
-                      <button
-                        key={index}
-                        type="button"
-                        onClick={() =>
-                          setActiveImage(index)
-                        }
-                        aria-label={`View image ${
-                          index + 1
-                        }`}
-                        className={cn(
-                          "h-2 rounded-full transition-all duration-300",
-                          index === activeImage
-                            ? "w-8 bg-white"
-                            : "w-2 bg-white/40 hover:bg-white/70"
-                        )}
-                      />
-                    )
-                  )}
-                </div>
+              <div className="flex items-center gap-2">
+                {galleryImages.map((_, index) => (
+                  <button
+                    key={index}
+                    type="button"
+                    onClick={() => setActiveImage(index)}
+                    aria-label={`View image ${index + 1}`}
+                    className={cn(
+                      "h-2 rounded-full transition-all duration-300",
+                      index === activeImage ? "w-8 bg-white" : "w-2 bg-white/40 hover:bg-white/70",
+                    )}
+                  />
+                ))}
               </div>
             </div>
           </div>
-        )}
+        </div>
+      )}
     </>
   );
 }
@@ -1594,9 +1486,7 @@ export function Location() {
             sm:p-6
           "
         >
-          <p className="eyebrow">
-            Find Us
-          </p>
+          <p className="eyebrow">Find Us</p>
 
           <div className="mt-5 flex flex-1 flex-col items-center justify-center gap-4">
             {/* QR CODE */}
@@ -1611,17 +1501,8 @@ export function Location() {
 
             {/* DIRECTIONS */}
 
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="w-full max-w-[170px]"
-            >
-              <a
-                href={mapsDirectionsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+            <Button asChild variant="outline" size="lg" className="w-full max-w-[170px]">
+              <a href={mapsDirectionsUrl} target="_blank" rel="noopener noreferrer">
                 <MapPin />
                 Get Directions
               </a>
@@ -1644,9 +1525,7 @@ export function Location() {
             sm:p-6
           "
         >
-          <p className="eyebrow">
-            Social Media
-          </p>
+          <p className="eyebrow">Social Media</p>
 
           <div className="mt-5 flex flex-1 flex-col justify-center gap-3">
             {/* INSTAGRAM */}
@@ -1693,9 +1572,7 @@ export function Location() {
                 <Instagram size={23} aria-hidden="true" />
               </span>
 
-              <span className="text-sm font-medium">
-                Instagram
-              </span>
+              <span className="text-sm font-medium">Instagram</span>
 
               <ArrowRight
                 size={17}
@@ -1747,9 +1624,7 @@ export function Location() {
                 <Facebook size={23} aria-hidden="true" />
               </span>
 
-              <span className="text-sm font-medium">
-                Facebook
-              </span>
+              <span className="text-sm font-medium">Facebook</span>
 
               <ArrowRight
                 size={17}
@@ -1801,9 +1676,7 @@ export function Location() {
                 <Youtube size={25} aria-hidden="true" />
               </span>
 
-              <span className="text-sm font-medium">
-                YouTube
-              </span>
+              <span className="text-sm font-medium">YouTube</span>
 
               <ArrowRight
                 size={17}
@@ -1880,24 +1753,15 @@ export function Location() {
 export function LandingImageCarousel() {
   const [activeImage, setActiveImage] = useState(0);
   const visibleImageIndexes = [0, 1, 2].map(
-    (offset) =>
-      (activeImage + offset) %
-      landingCarouselImages.length
+    (offset) => (activeImage + offset) % landingCarouselImages.length,
   );
 
   const previousImage = () => {
-    setActiveImage((current) =>
-      current === 0
-        ? landingCarouselImages.length - 1
-        : current - 1
-    );
+    setActiveImage((current) => (current === 0 ? landingCarouselImages.length - 1 : current - 1));
   };
 
   const nextImage = () => {
-    setActiveImage(
-      (current) =>
-        (current + 1) % landingCarouselImages.length
-    );
+    setActiveImage((current) => (current + 1) % landingCarouselImages.length);
   };
 
   useEffect(() => {
@@ -1931,11 +1795,7 @@ export function LandingImageCarousel() {
                 "
               >
                 <div className="aspect-[4/5] bg-black">
-                  <img
-                    src={image.src}
-                    alt={image.alt}
-                    className="h-full w-full object-contain"
-                  />
+                  <img src={image.src} alt={image.alt} className="h-full w-full object-contain" />
                 </div>
               </article>
             );
@@ -1976,9 +1836,7 @@ export function LandingImageCarousel() {
                 aria-label={`Show carousel image ${index + 1}`}
                 className={cn(
                   "h-2 rounded-full bg-foreground/25 transition-all hover:bg-gold",
-                  index === activeImage
-                    ? "w-8 bg-gold"
-                    : "w-2"
+                  index === activeImage ? "w-8 bg-gold" : "w-2",
                 )}
               />
             ))}
@@ -2031,11 +1889,7 @@ export function GrandStage() {
           <Reveal
             key={item.title}
             index={index % 5}
-            className={cn(
-              index === 0 || index === 4
-                ? "lg:row-span-2"
-                : ""
-            )}
+            className={cn(index === 0 || index === 4 ? "lg:row-span-2" : "")}
           >
             <figure className="media-zoom relative h-full min-h-72 overflow-hidden border border-border bg-card">
               <img
@@ -2071,11 +1925,7 @@ export function CuratedPackages() {
 
       <div className="mt-10 grid items-stretch gap-6 lg:grid-cols-4">
         {packages.map((tier, index) => (
-          <Reveal
-            key={tier.name}
-            index={index % 4}
-            className="h-full"
-          >
+          <Reveal key={tier.name} index={index % 4} className="h-full">
             <Link
               href={tier.href}
               aria-label={`View ${tier.name} package`}
@@ -2083,148 +1933,131 @@ export function CuratedPackages() {
             >
               <article
                 className={cn(
-                  "card-elegant relative flex h-full min-h-[30rem] flex-col overflow-hidden p-7 transition-transform duration-300 group-hover:-translate-y-1 group-focus-visible:-translate-y-1",
+                  "package-card card-elegant relative flex h-full min-h-[30rem] flex-col overflow-hidden p-7",
                   tier.featured &&
-                    "badge-card badge-float border-yellow-300/80 bg-gradient-to-br from-gold-soft via-gold to-amber-700 text-ink shadow-gold"
+                    "badge-card badge-float border-yellow-300/80 bg-gradient-to-br from-gold-soft via-gold to-amber-700 text-ink shadow-gold",
                 )}
               >
-              {tier.featured && (
-                <>
-                  <span className="badge-shine" aria-hidden="true" />
-                  <span className="badge-sweep" aria-hidden="true" />
-                  <span
-                    aria-hidden
-                    className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/50 via-white/10 to-transparent"
-                  />
-                </>
-              )}
-
-              <div
-                className={cn(
-                  "absolute inset-x-0 bottom-0 z-30 translate-y-full border-t border-gold/35 bg-white/95 p-4 opacity-0 shadow-xl backdrop-blur transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100",
-                  tier.featured
-                    ? "text-ink"
-                    : "text-foreground"
+                {tier.featured && (
+                  <>
+                    <span className="badge-shine" aria-hidden="true" />
+                    <span className="badge-sweep" aria-hidden="true" />
+                    <span
+                      aria-hidden
+                      className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/50 via-white/10 to-transparent"
+                    />
+                  </>
                 )}
-              >
-                <div className="flex flex-col items-start gap-3">
-                  <span className="relative inline-flex min-h-8 w-32 items-center drop-shadow-[0_8px_12px_rgba(29,28,38,0.2)]">
-                    <span className="relative z-10 grid h-8 w-8 shrink-0 place-items-center border-y border-l border-yellow-700/50 bg-gradient-to-br from-yellow-200 via-gold to-amber-700 text-[#071128] [clip-path:polygon(22%_0,100%_0,84%_50%,100%_100%,22%_100%,0_50%)]">
-                      <Star className="h-3 w-3 fill-current" aria-hidden="true" />
-                    </span>
 
-                    <span className="relative -ml-1 flex h-8 min-w-0 flex-1 items-center border-y border-r border-yellow-700/50 bg-[#101629] px-2 pr-4 text-left [clip-path:polygon(0_0,88%_0,100%_50%,88%_100%,0_100%,8%_50%)]">
-                      <span className="absolute left-1/2 top-0 h-px w-6 -translate-x-1/2 bg-white/80 shadow-[0_0_10px_2px_rgba(255,255,255,0.7)]" />
-                      <span className="leading-none">
-                        <span className="block text-[0.48rem] font-semibold uppercase tracking-[0.08em] text-gold">
-                          Opening
-                        </span>
-                        <span className="block font-display text-[0.8rem] font-bold uppercase leading-none tracking-[0.04em] text-white">
-                          Offer
+                <div
+                  className={cn(
+                    "package-price-overlay absolute inset-x-0 bottom-0 z-30 translate-y-full border-t border-gold/35 bg-white/95 p-4 opacity-0 shadow-xl backdrop-blur transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100",
+                    tier.featured ? "text-ink" : "text-foreground",
+                  )}
+                >
+                  <div className="flex flex-col items-start gap-3">
+                    <span className="relative inline-flex min-h-8 w-32 items-center drop-shadow-[0_8px_12px_rgba(29,28,38,0.2)]">
+                      <span className="relative z-10 grid h-8 w-8 shrink-0 place-items-center border-y border-l border-yellow-700/50 bg-gradient-to-br from-yellow-200 via-gold to-amber-700 text-[#071128] [clip-path:polygon(22%_0,100%_0,84%_50%,100%_100%,22%_100%,0_50%)]">
+                        <Star className="h-3 w-3 fill-current" aria-hidden="true" />
+                      </span>
+
+                      <span className="relative -ml-1 flex h-8 min-w-0 flex-1 items-center border-y border-r border-yellow-700/50 bg-[#101629] px-2 pr-4 text-left [clip-path:polygon(0_0,88%_0,100%_50%,88%_100%,0_100%,8%_50%)]">
+                        <span className="absolute left-1/2 top-0 h-px w-6 -translate-x-1/2 bg-white/80 shadow-[0_0_10px_2px_rgba(255,255,255,0.7)]" />
+                        <span className="leading-none">
+                          <span className="block text-[0.48rem] font-semibold uppercase tracking-[0.08em] text-gold">
+                            Opening
+                          </span>
+                          <span className="block font-display text-[0.8rem] font-bold uppercase leading-none tracking-[0.04em] text-white">
+                            Offer
+                          </span>
                         </span>
                       </span>
                     </span>
-                  </span>
 
-                  <p className="flex w-full items-end justify-center gap-2 text-center text-3xl font-black leading-none tracking-normal text-ink">
-                    <span>
-                      {inr(
-                        packagePrices.get(
-                          tier.name
-                        ) ?? 0
-                      )}
-                    </span>
-                    <span className="pb-1 text-xs font-semibold uppercase tracking-[0.14em] text-ink/70">
-                      + GST
-                    </span>
-                  </p>
-                  <p className="w-full text-right text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-ink/55">
-                    <span className="relative inline-block pr-2">
-                      Conditions applied
-                      <span
-                        aria-hidden="true"
-                        className="absolute -right-0.5 -top-1 text-[0.7rem] leading-none text-ink/70"
-                      >
-                        *
+                    <p className="flex w-full items-end justify-center gap-2 text-center text-3xl font-black leading-none tracking-normal text-ink">
+                      <span>{inr(packagePrices.get(tier.name) ?? 0)}</span>
+                      <span className="pb-1 text-xs font-semibold uppercase tracking-[0.14em] text-ink/70">
+                        + GST
                       </span>
-                    </span>
-                  </p>
+                    </p>
+                    <p className="w-full text-right text-[0.65rem] font-semibold uppercase tracking-[0.14em] text-ink/55">
+                      <span className="relative inline-block pr-2">
+                        Conditions applied
+                        <span
+                          aria-hidden="true"
+                          className="absolute -right-0.5 -top-1 text-[0.7rem] leading-none text-ink/70"
+                        >
+                          *
+                        </span>
+                      </span>
+                    </p>
+                  </div>
                 </div>
-              </div>
 
-              {/* {tier.motif && (
+                {/* {tier.motif && (
                 <p className={cn("eyebrow relative z-10", tier.featured && "mt-5 text-center")}>
                   {tier.motif}
                 </p>
               )} */}
 
-              <div
-                className={cn(
-                  "relative z-10 flex min-h-20 items-center",
-                  tier.featured ? "justify-center" : "justify-start"
-                )}
-              >
                 <div
                   className={cn(
-                    "relative inline-flex max-w-full items-center gap-3 border px-4 py-3 shadow-[var(--shadow-soft)]",
-                    "before:absolute before:inset-1 before:border before:content-['']",
-                    tier.featured
-                      ? "border-ink/25 bg-ink text-ivory before:border-gold/45"
-                      : "border-gold/50 bg-gradient-to-br from-ivory via-white to-gold-soft/40 text-ink before:border-gold/35"
+                    "package-card-header relative z-10 flex min-h-20 items-center",
+                    tier.featured ? "justify-center" : "justify-start",
                   )}
                 >
-                  <span
+                  <div
                     className={cn(
-                      "relative z-10 h-12 w-12 shrink-0 overflow-hidden border bg-ink",
+                      "relative inline-flex max-w-full items-center gap-3 border px-4 py-3 shadow-[var(--shadow-soft)]",
+                      "before:absolute before:inset-1 before:border before:content-['']",
                       tier.featured
-                        ? "border-gold/55"
-                        : "border-gold/60"
+                        ? "border-ink/25 bg-ink text-ivory before:border-gold/45"
+                        : "border-gold/50 bg-gradient-to-br from-ivory via-white to-gold-soft/40 text-ink before:border-gold/35",
                     )}
                   >
-                    <img
-                      src="/Untitled_design__1_-removebg-preview.png"
-                      alt=""
-                      aria-hidden="true"
-                      className="absolute left-1/2 top-1/2 h-24 w-24 max-w-none -translate-x-1/2 -translate-y-1/2 object-contain"
-                    />
-                  </span>
+                    <span
+                      className={cn(
+                        "relative z-10 h-12 w-12 shrink-0 overflow-hidden border bg-ink",
+                        tier.featured ? "border-gold/55" : "border-gold/60",
+                      )}
+                    >
+                      <img
+                        src="/Untitled_design__1_-removebg-preview.png"
+                        alt=""
+                        aria-hidden="true"
+                        className="absolute left-1/2 top-1/2 h-24 w-24 max-w-none -translate-x-1/2 -translate-y-1/2 object-contain"
+                      />
+                    </span>
 
-                  <span className="relative z-10 min-w-0 pb-1">
-                    <HallCardName name={tier.cardName} featured={tier.featured} />
-                  </span>
+                    <span className="relative z-10 min-w-0 pb-1">
+                      <HallCardName name={tier.cardName} featured={tier.featured} />
+                    </span>
+                  </div>
                 </div>
-              </div>
 
-              <p
-                className={cn(
-                  "relative z-10 mt-3 text-xs uppercase tracking-[0.14em]",
-                  tier.featured
-                    ? "text-ink/65"
-                    : "text-muted-foreground"
-                )}
-              >
-                {tier.note}
-              </p>
+                <p
+                  className={cn(
+                    "package-card-note relative z-10 mt-3 text-xs uppercase tracking-[0.14em]",
+                    tier.featured ? "text-ink/65" : "text-muted-foreground",
+                  )}
+                >
+                  {tier.note}
+                </p>
 
-              <ul className="relative z-10 mt-7 flex-1 space-y-3">
-                {tier.features.map(
-                  (feature) => (
+                <ul className="package-card-features relative z-10 mt-7 flex-1 space-y-3">
+                  {tier.features.map((feature) => (
                     <li
                       key={feature}
                       className={cn(
                         "flex gap-3 text-sm leading-relaxed",
-                        tier.featured
-                          ? "text-ink"
-                          : ""
+                        tier.featured ? "text-ink" : "",
                       )}
                     >
                       <Check className="mt-0.5 h-4 w-4 shrink-0 text-gold" />
                       {feature}
                     </li>
-                  )
-                )}
-              </ul>
-
+                  ))}
+                </ul>
               </article>
             </Link>
           </Reveal>
@@ -2249,38 +2082,24 @@ export function FamilyStories() {
 
       <div className="mt-14 grid gap-6 lg:grid-cols-3">
         {stories.map((story, index) => (
-          <Reveal
-            key={story.name}
-            index={index % 3}
-          >
+          <Reveal key={story.name} index={index % 3}>
             <figure className="card-elegant flex h-full flex-col p-8">
-              <div
-                className="flex gap-1"
-                aria-label="5 out of 5 stars"
-              >
+              <div className="flex gap-1" aria-label="5 out of 5 stars">
                 {Array.from({
                   length: 5,
                 }).map((_, star) => (
-                  <Star
-                    key={star}
-                    className="h-4 w-4 fill-gold text-gold"
-                  />
+                  <Star key={star} className="h-4 w-4 fill-gold text-gold" />
                 ))}
               </div>
 
-              <Gem
-                className="mt-8 h-8 w-8 text-gold/60"
-                aria-hidden="true"
-              />
+              <Gem className="mt-8 h-8 w-8 text-gold/60" aria-hidden="true" />
 
               <blockquote className="mt-4 flex-1 font-display text-xl leading-relaxed text-foreground">
                 &quot;{story.quote}&quot;
               </blockquote>
 
               <figcaption className="mt-7 border-t border-border pt-5">
-                <span className="block font-display text-lg">
-                  {story.name}
-                </span>
+                <span className="block font-display text-lg">{story.name}</span>
 
                 <span className="mt-1 block text-xs uppercase tracking-[0.14em] text-gold">
                   {story.event}
@@ -2303,9 +2122,7 @@ export function ReserveCta() {
     <Section tone="ink" id="contact">
       <div className="grid items-center gap-10 lg:grid-cols-[1fr_0.9fr]">
         <div>
-          <p className="eyebrow">
-            Begin Your Celebration
-          </p>
+          <p className="eyebrow">Begin Your Celebration</p>
 
           <h2 className="mt-3 text-3xl text-ivory sm:text-4xl lg:text-5xl">
             Let&apos;s Plan Together
@@ -2314,30 +2131,20 @@ export function ReserveCta() {
           <Ornament className="mt-5 justify-start" />
 
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-ivory/70">
-            Share a few details about your event and our
-            coordinators will get in touch within 24 hours.
+            Share a few details about your event and our coordinators will get in touch within 24
+            hours.
           </p>
 
           <div className="mt-9 flex flex-wrap gap-3">
-            <Button
-              asChild
-              variant="gold"
-              size="xl"
-            >
+            <Button asChild variant="gold" size="xl">
               <Link href="/booking">
                 Book Now
                 <ArrowRight />
               </Link>
             </Button>
 
-            <Button
-              asChild
-              variant="outlineLight"
-              size="xl"
-            >
-              <a href={`tel:${venue.phone}`}>
-                {venue.phoneDisplay}
-              </a>
+            <Button asChild variant="outlineLight" size="xl">
+              <a href={`tel:${venue.phone}`}>{venue.phoneDisplay}</a>
             </Button>
           </div>
         </div>
@@ -2345,69 +2152,43 @@ export function ReserveCta() {
         <div className="border border-ivory/15 p-7">
           <HeartHandshake className="h-8 w-8 text-gold" />
 
-          <h3 className="mt-4 font-display text-2xl text-ivory">
-            Visit Us
-          </h3>
+          <h3 className="mt-4 font-display text-2xl text-ivory">Visit Us</h3>
 
           <address className="mt-4 space-y-1 text-sm not-italic leading-relaxed text-ivory/70">
-            {venue.addressLines.map(
-              (line) => (
-                <span
-                  key={line}
-                  className="block"
-                >
-                  {line}
-                </span>
-              )
-            )}
+            {venue.addressLines.map((line) => (
+              <span key={line} className="block">
+                {line}
+              </span>
+            ))}
           </address>
 
           <div className="mt-6 grid gap-4 text-sm text-ivory/70 sm:grid-cols-2">
             <div>
-              <p className="text-xs uppercase tracking-[0.18em] text-gold">
-                Call
-              </p>
+              <p className="text-xs uppercase tracking-[0.18em] text-gold">Call</p>
 
-              <a
-                href={`tel:${venue.phone}`}
-                className="mt-2 block hover:text-gold"
-              >
+              <a href={`tel:${venue.phone}`} className="mt-2 block hover:text-gold">
                 {venue.phoneDisplay}
               </a>
 
-              <a
-                href={`tel:${venue.phoneAlt}`}
-                className="mt-1 block hover:text-gold"
-              >
+              <a href={`tel:${venue.phoneAlt}`} className="mt-1 block hover:text-gold">
                 {venue.phoneAltDisplay}
               </a>
             </div>
 
             <div>
-              <p className="text-xs uppercase tracking-[0.18em] text-gold">
-                Email
-              </p>
+              <p className="text-xs uppercase tracking-[0.18em] text-gold">Email</p>
 
-              <a
-                href={`mailto:${venue.email}`}
-                className="mt-2 block break-all hover:text-gold"
-              >
+              <a href={`mailto:${venue.email}`} className="mt-2 block break-all hover:text-gold">
                 {venue.email}
               </a>
             </div>
 
             <div className="sm:col-span-2">
-              <p className="text-xs uppercase tracking-[0.18em] text-gold">
-                Open
-              </p>
+              <p className="text-xs uppercase tracking-[0.18em] text-gold">Open</p>
 
-              <p className="mt-2">
-                Mon - Sun | 9:00 AM - 9:00 PM
-              </p>
+              <p className="mt-2">Mon - Sun | 9:00 AM - 9:00 PM</p>
 
-              <p className="mt-1 text-ivory/55">
-                Site visits by appointment
-              </p>
+              <p className="mt-1 text-ivory/55">Site visits by appointment</p>
             </div>
           </div>
         </div>

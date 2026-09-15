@@ -13,9 +13,7 @@ export const venue = {
   whatsapp: "919611912121",
   email: "vns.park25@gmail.com",
   addressLines: [
-
     "Venus Park And Convention Centre",
-
 
     "#67/1 Munyamma Garden, 7th Cross",
     "Sarvabhouma Nagar, Chikkalasandra",

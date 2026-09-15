@@ -47,6 +47,9 @@ export function AdminLogin({ onAuthenticated }: { onAuthenticated: () => void })
           </CardDescription>
         </CardHeader>
         <CardContent>
+          <Button asChild variant="outline" className="mb-5 w-full">
+            <a href="/admin/calendar">Manage calendar with Sanity</a>
+          </Button>
           <form onSubmit={onSubmit} className="space-y-4">
             <div>
               <Label htmlFor="admin-key">Admin access key</Label>

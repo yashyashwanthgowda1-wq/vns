@@ -54,7 +54,6 @@ export function Section({
     <section
       id={id}
       className={cn(
-
         "px-4 py-20 sm:px-[20px] lg:px-[40px] lg:py-[60px]",
         tone === "sand" && "bg-sand",
         tone === "ink" && "bg-ink text-ivory",

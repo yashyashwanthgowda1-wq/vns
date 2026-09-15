@@ -14,7 +14,6 @@ export const metadata: Metadata = {
   description:
     "Twelve premium halls, grand mandaps and curated packages for weddings, receptions, sangeet, corporate events and festivals in Bangalore South.",
   openGraph: {
-
     title: "Venus Park  And Convention Hall",
 
     description:

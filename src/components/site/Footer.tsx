@@ -33,8 +33,9 @@ const footerPhoneLinks = [
   { href: `tel:${venue.phoneAlt}`, label: venue.phoneAltDisplay },
 ].filter(
   (phoneLink, index, phoneLinks) =>
-    phoneLinks.findIndex((item) => item.href === phoneLink.href || item.label === phoneLink.label) ===
-    index,
+    phoneLinks.findIndex(
+      (item) => item.href === phoneLink.href || item.label === phoneLink.label,
+    ) === index,
 );
 
 export function Footer() {
@@ -143,7 +144,9 @@ export function Footer() {
         </div>
 
         <div className="mt-10 flex flex-col gap-4 border-t border-ivory/15 pt-8 text-xs text-ivory/50 sm:flex-row sm:items-center sm:justify-between">
-          <p>&copy; {new Date().getFullYear()} {venue.name}. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} {venue.name}. All rights reserved.
+          </p>
           <div className="flex flex-wrap gap-x-6 gap-y-2">
             <Link href="/privacy-policy" className="hover:text-gold">
               Privacy Policy

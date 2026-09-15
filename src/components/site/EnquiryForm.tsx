@@ -17,6 +17,8 @@ import {
 import { eventTypes, packageOptions, venue, whatsappLink } from "@/data/venue";
 import { WhatsAppIcon } from "./WhatsAppIcon";
 import { cn } from "@/lib/utils";
+import { AvailabilityCalendar } from "./AvailabilityCalendar";
+import { calendarDateSchema, venueToday } from "@/lib/calendar";
 
 const schema = z.object({
   name: z
@@ -31,7 +33,9 @@ const schema = z.object({
     .max(20, { message: "Phone number is too long" })
     .regex(/^[+()\d\s-]+$/, { message: "Phone can only contain digits and + ( ) -" }),
   eventType: z.string().min(1, { message: "Select an event type" }),
-  date: z.string().min(1, { message: "Choose a preferred date" }),
+  date: calendarDateSchema.refine((date) => date >= venueToday(), {
+    message: "Choose today or a future date",
+  }),
   guests: z
     .string()
     .trim()
@@ -191,6 +195,7 @@ export function EnquiryForm({
       onSubmit={onSubmit}
       className={cn("space-y-4 border border-border bg-card p-6 sm:p-8", className)}
     >
+      <AvailabilityCalendar onSelect={(date) => set("date", date)} />
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <Label htmlFor={`${id}-name`}>Your Name</Label>
@@ -241,6 +246,7 @@ export function EnquiryForm({
           <Input
             id={`${id}-date`}
             type="date"
+            min={venueToday()}
             value={values.date}
             onChange={(e) => set("date", e.target.value)}
             aria-invalid={!!errors.date}

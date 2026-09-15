@@ -168,6 +168,9 @@ export function AdminDashboard({ onLogout }: { onLogout: () => void }) {
             </div>
           </div>
           <div className="flex items-center gap-2">
+            <Button asChild variant="outline" size="sm">
+              <a href="/admin/calendar">Calendar</a>
+            </Button>
             <Button variant="outline" size="sm" onClick={loadStats} disabled={refreshingStats}>
               <RefreshCw className={refreshingStats ? "animate-spin" : ""} />
               <span className="hidden sm:inline">Refresh</span>

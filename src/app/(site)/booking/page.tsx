@@ -52,9 +52,9 @@ export default async function BookingPage({
         image={images.hero}
       />
 
-      <section className="bg-sand px-4 py-20 sm:px-6 lg:px-8">
-        <div className="mx-auto grid max-w-7xl gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
-          <aside className="space-y-8">
+      <section className="bg-sand px-4 py-16 sm:px-[20px] lg:px-[40px] lg:py-20">
+        <div className="mx-auto grid max-w-7xl items-start gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
+          <aside className="space-y-8 lg:sticky lg:top-24">
             <div>
               <p className="eyebrow">Booking Details</p>
               <h2 className="mt-3 text-3xl leading-tight sm:text-4xl">

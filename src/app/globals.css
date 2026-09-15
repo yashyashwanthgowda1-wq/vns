@@ -335,7 +335,7 @@
     radial-gradient(
       circle at 50% 45%,
       rgba(255, 190, 70, 0.25) 0%,
-      rgba(255, 140, 30, 0.10) 35%,
+      rgba(255, 140, 30, 0.1) 35%,
       transparent 72%
     ),
     rgba(255, 255, 255, 0.72);
@@ -347,10 +347,8 @@
 
   overflow: hidden;
 
-  animation:
-    offerSunGlow 2.2s ease-in-out infinite;
+  animation: offerSunGlow 2.2s ease-in-out infinite;
 }
-
 
 /* ---------------------------------------------------------
    SPECIAL OFFER TEXT
@@ -368,11 +366,7 @@
 
   border-radius: 999px;
 
-  background: linear-gradient(
-    135deg,
-    #ef4444,
-    #f97316
-  );
+  background: linear-gradient(135deg, #ef4444, #f97316);
 
   color: white;
 
@@ -383,12 +377,10 @@
   letter-spacing: 0.16em;
   text-transform: uppercase;
 
-  box-shadow:
-    0 4px 12px rgba(239, 68, 68, 0.3);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
 
   animation: offerBadgePulse 1.8s ease-in-out infinite;
 }
-
 
 /* ---------------------------------------------------------
    YELLOW DOT
@@ -425,7 +417,6 @@
   animation: offerDotRing 1.4s ease-out infinite;
 }
 
-
 /* ---------------------------------------------------------
    PRICE
    --------------------------------------------------------- */
@@ -454,7 +445,6 @@
   animation: priceGlow 2.2s ease-in-out infinite;
 }
 
-
 /* ---------------------------------------------------------
    SUN RAYS
    --------------------------------------------------------- */
@@ -472,11 +462,7 @@
 
   border-radius: 999px;
 
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 202, 72, 0.95),
-    rgba(255, 150, 30, 0)
-  );
+  background: linear-gradient(to bottom, rgba(255, 202, 72, 0.95), rgba(255, 150, 30, 0));
 
   transform-origin: 50% 80px;
 
@@ -486,7 +472,6 @@
 
   animation: sunRayBlink 2.2s ease-in-out infinite;
 }
-
 
 /* Individual rays */
 
@@ -529,7 +514,6 @@
   animation-delay: 1.05s;
 }
 
-
 /* ---------------------------------------------------------
    MOVING SHINE INSIDE BOX
    --------------------------------------------------------- */
@@ -545,12 +529,7 @@
   width: 45%;
   height: 200%;
 
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.65),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.65), transparent);
 
   transform: rotate(20deg);
 
@@ -558,7 +537,6 @@
 
   animation: offerShine 3.5s ease-in-out infinite;
 }
-
 
 /* ---------------------------------------------------------
    FEATURED / DIAMOND VERSION
@@ -570,7 +548,7 @@
   background:
     radial-gradient(
       circle at 50% 45%,
-      rgba(212, 175, 55, 0.30) 0%,
+      rgba(212, 175, 55, 0.3) 0%,
       rgba(120, 80, 10, 0.18) 35%,
       transparent 75%
     ),
@@ -595,13 +573,8 @@
 }
 
 .offer-sun-box-featured .offer-ray {
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 225, 120, 1),
-    rgba(212, 175, 55, 0)
-  );
+  background: linear-gradient(to bottom, rgba(255, 225, 120, 1), rgba(212, 175, 55, 0));
 }
-
 
 /* =========================================================
    ANIMATIONS
@@ -629,7 +602,6 @@
   }
 }
 
-
 @keyframes offerBadgePulse {
   0%,
   100% {
@@ -641,14 +613,12 @@
   }
 }
 
-
 @keyframes offerDotBlink {
   0%,
   100% {
     opacity: 0.55;
 
-    box-shadow:
-      0 0 4px #ffe27a;
+    box-shadow: 0 0 4px #ffe27a;
   }
 
   50% {
@@ -661,7 +631,6 @@
   }
 }
 
-
 @keyframes offerDotRing {
   0% {
     transform: scale(0.6);
@@ -673,7 +642,6 @@
     opacity: 0;
   }
 }
-
 
 @keyframes sunRayBlink {
   0%,
@@ -693,26 +661,20 @@
   }
 }
 
-
 @keyframes priceGlow {
   0%,
   100% {
     transform: scale(1);
 
-    filter:
-      drop-shadow(0 0 0 rgba(255, 190, 50, 0));
+    filter: drop-shadow(0 0 0 rgba(255, 190, 50, 0));
   }
 
   50% {
     transform: scale(1.035);
 
-    filter:
-      drop-shadow(
-        0 0 10px rgba(255, 190, 50, 0.3)
-      );
+    filter: drop-shadow(0 0 10px rgba(255, 190, 50, 0.3));
   }
 }
-
 
 @keyframes offerShine {
   0% {
@@ -735,10 +697,64 @@
   }
 }
 
-
 /* ---------------------------------------------------------
    MOBILE
    --------------------------------------------------------- */
+
+@media (max-width: 1023px) {
+  /* Touch devices cannot depend on hover to reveal package pricing. */
+  .package-price-overlay {
+    position: static !important;
+    inset: auto !important;
+    top: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    left: auto !important;
+    order: 5;
+    flex: 0 0 auto;
+    margin-top: 1.5rem;
+    /* Tailwind translation utilities use translate independently of transform. */
+    translate: none !important;
+    transform: none;
+    opacity: 1;
+    transition: none !important;
+  }
+
+  .package-card,
+  .package-card:hover,
+  .package-card:focus-visible,
+  .package-card.badge-card:hover {
+    height: auto !important;
+    min-height: 0;
+    animation: none;
+    transform: none;
+    box-shadow: none;
+    border-color: var(--border);
+    transition: none !important;
+  }
+
+  /* Keep the mobile card completely static: touch browsers can emulate
+     :hover after a tap, which should not move or restyle the card. */
+  .package-card .badge-sweep,
+  .package-card:hover .badge-sweep,
+  .package-card:focus-visible .badge-sweep {
+    opacity: 0;
+    animation: none;
+  }
+
+  .package-card-header {
+    order: 1;
+  }
+
+  .package-card-note {
+    order: 2;
+  }
+
+  .package-card-features {
+    order: 4;
+    flex: 0 0 auto;
+  }
+}
 
 @media (max-width: 640px) {
   .offer-sun-content {
@@ -753,7 +769,6 @@
     transform-origin: 50% 70px;
   }
 }
-
 
 /* ---------------------------------------------------------
    ACCESSIBILITY
