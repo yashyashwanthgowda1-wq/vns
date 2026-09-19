@@ -505,13 +505,13 @@ const packages = [
     name: "Silver",
     cardName: "V hall",
     motif: "",
-    note: "8 Hours | 50 to 250 Guests",
+    note: "8 Hours | 50 to 200 Guests",
     href: "/booking?package=Silver",
 
     features: [
       "Non-AC package",
       "8-hour hall booking",
-      "Flexible capacity for 50 to 250 guests",
+      "Flexible capacity for 50 to 200 guests",
       "Seating capacity for 75 guests",
       "Dining setup for 50 people",
     ],
