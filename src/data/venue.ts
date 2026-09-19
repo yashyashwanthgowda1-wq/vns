@@ -15,7 +15,7 @@ export const venue = {
   addressLines: [
     "Venus Park And Convention Centre",
 
-    "#67/1 Munyamma Garden, 7th Cross",
+    "#67/1 Munyamma Garden, 7th main road",
     "Sarvabhouma Nagar, Chikkalasandra",
     "Bangalore - 560 061",
   ],
