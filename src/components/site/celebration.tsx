@@ -1926,8 +1926,8 @@ export function CuratedPackages() {
       />
 
       <div className="mt-10 grid items-stretch gap-6 lg:grid-cols-4">
-        {packages.map((tier, index) => (
-          <Reveal key={tier.name} index={index % 4} className="h-full">
+        {packages.map((tier) => (
+          <div key={tier.name} className="h-full">
             <Link
               href={tier.href}
               aria-label={`View ${tier.name} package`}
@@ -2062,7 +2062,7 @@ export function CuratedPackages() {
                 </ul>
               </article>
             </Link>
-          </Reveal>
+          </div>
         ))}
       </div>
     </Section>

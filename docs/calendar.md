@@ -38,7 +38,7 @@ With a configured project:
 3. Leave an edit in draft and verify the published value stays visible. Publish it, refresh the booking page and verify the change. Unpublish/delete it and verify it becomes unmarked.
 4. Try creating a duplicate date and verify editor validation blocks publication. Test keyboard navigation and a mobile viewport.
 5. Navigate between months quickly and verify older responses do not replace the current month. Test an empty month, offline/retry behavior and invalid API month input (HTTP 400).
-6. Remove Sanity configuration and restart: the admin shows setup guidance and the public calendar shows a recoverable error instead of invented availability.
+6. Remove Sanity configuration and restart: the admin shows setup guidance and the public calendar remains usable with every date unmarked for manual confirmation.
 
 ## Deployment
 

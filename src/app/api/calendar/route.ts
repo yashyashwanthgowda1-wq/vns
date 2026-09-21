@@ -16,8 +16,8 @@ export async function GET(request: Request) {
   }
   if (!sanityConfigured) {
     return NextResponse.json(
-      { success: false, error: "Calendar is not available yet. Please contact our team." },
-      { status: 503 },
+      { success: true, data: [] },
+      { headers: { "Cache-Control": "no-store" } },
     );
   }
   try {
