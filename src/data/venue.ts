@@ -269,7 +269,12 @@ export const comparisonRows: {
   platinum: string | boolean;
   diamond: string | boolean;
 }[] = [
-  { label: "Hall access", gold: "Standard hours", platinum: "Extended hours", diamond: "Full day" },
+  {
+    label: "Hall access",
+    gold: "Standard hours",
+    platinum: "Extended hours",
+    diamond: "8-hour event",
+  },
   { label: "Seating", gold: "Standard", platinum: "Custom layout", diamond: "Custom + VIP zones" },
   { label: "Stage decoration", gold: "Basic setup", platinum: "Premium", diamond: "Luxury custom" },
   { label: "Catering", gold: false, platinum: "Standard menu", diamond: "Premium menu" },

@@ -3,8 +3,10 @@ import { CalendarCheck, Clock, Mail, MapPin, Phone, Sparkles } from "lucide-reac
 
 import { EnquiryForm } from "@/components/site/EnquiryForm";
 import { PageHero } from "@/components/site/Section";
+import { VenueGallery } from "@/components/site/VenueGallery";
 import { Button } from "@/components/ui/button";
 import { images } from "@/data/images";
+import { getVenueGallery } from "@/data/venue-galleries";
 import { mapsDirectionsUrl, venue, whatsappLink } from "@/data/venue";
 import { WhatsAppIcon } from "@/components/site/WhatsAppIcon";
 
@@ -33,10 +35,11 @@ export const metadata: Metadata = {
 export default async function BookingPage({
   searchParams,
 }: {
-  searchParams: Promise<{ package?: string; pkg?: string }>;
+  searchParams: Promise<{ package?: string; pkg?: string; hall?: string }>;
 }) {
   const params = await searchParams;
   const requestedPackage = params.package ?? params.pkg;
+  const selectedGallery = getVenueGallery(params.hall, requestedPackage);
   const normalizedPackage = requestedPackage
     ? (packageAliases[requestedPackage.toLowerCase()] ?? requestedPackage)
     : undefined;
@@ -45,6 +48,8 @@ export default async function BookingPage({
 
   return (
     <>
+      {selectedGallery && <VenueGallery gallery={selectedGallery} />}
+
       <PageHero
         eyebrow="Begin Your Celebration"
         title="Let's Plan Together"

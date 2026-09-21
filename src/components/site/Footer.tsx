@@ -20,10 +20,10 @@ const columns = [
     title: "Packages",
     links: [
       { label: "All packages", to: "/#packages" },
-      { label: "V hall", to: "/#packages" },
-      { label: "N hall", to: "/#packages" },
-      { label: "S hall", to: "/#packages" },
-      { label: "VNS hall", to: "/#packages" },
+      { label: "V Hall", to: "/#packages" },
+      { label: "N Hall", to: "/#packages" },
+      { label: "S Hall", to: "/#packages" },
+      { label: "VNS Hall", to: "/#packages" },
     ],
   },
 ];
@@ -74,7 +74,7 @@ export function Footer() {
               </h3>
               <ul className="mt-5 space-y-2.5">
                 {column.links.map((link) => (
-                  <li key={`${column.title}-${link.to}`}>
+                  <li key={`${column.title}-${link.label}-${link.to}`}>
                     <Link
                       href={link.to}
                       className="text-sm text-ivory/70 transition-colors hover:text-gold"

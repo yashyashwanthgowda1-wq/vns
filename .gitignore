@@ -6,6 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
+tmp/
 
 node_modules
 backend/dist
@@ -37,3 +38,4 @@ tsconfig.tsbuildinfo
 *.njsproj
 *.sln
 *.sw?
+.vercel

@@ -503,68 +503,70 @@ const showcase = [
 const packages = [
   {
     name: "Silver",
-    cardName: "V hall",
+    cardName: "V Hall",
     motif: "",
     note: "8 Hours | 50 to 200 Guests",
-    href: "/booking?package=Silver",
+    href: "/booking?package=Silver&hall=v-hall",
 
     features: [
       "Non-AC package",
       "8-hour hall booking",
       "Flexible capacity for 50 to 200 guests",
-      "Seating capacity for 75 guests",
-      "Dining setup for 50 people",
+      "Seating capacity: 120 people",
+      "Dining table: 50 members per flow",
     ],
   },
 
   {
     name: "Gold",
-    cardName: "N hall",
+    cardName: "N Hall",
     motif: "Marigold",
     note: "8 Hours | 300 to 1500 Guests",
-    href: "/booking?package=Gold",
+    href: "/booking?package=Gold&hall=n-hall",
 
     features: [
       "All Court Non-AC package",
       "8-hour hall booking",
       "Flexible capacity for 300 to 1500 guests",
-      "Seating capacity for 400 guests",
-      "Dining setup for 200 people",
+      "Seating capacity: 500 people",
+      "Dining table: 200 members per flow",
+      "2 rooms available near the stage",
     ],
   },
 
   {
     name: "Platinum",
-    cardName: "S hall",
+    cardName: "S Hall",
     motif: "Kanchipuram",
     note: "8 Hours | 500 to 2000 Guests",
-    href: "/booking?package=Platinum",
+    href: "/booking?package=Platinum&hall=s-hall",
 
     features: [
       "Non-AC package",
       "8-hour hall booking",
       "Flexible capacity for 500 to 2000 guests",
-      "Seating capacity for 4000 guests",
-      "Dining setup for 200 people",
+      "Seating capacity: 750 to 1,000 people",
+      "Dining table: 200 people",
+      "4 rooms total: 2 with AC and 2 without AC",
     ],
   },
 
   {
     name: "Diamond",
-    cardName: "VNS hall",
+    cardName: "VNS Hall",
     motif: "Chola Royal",
-    note: "Full Day | Venus Hall",
-    href: "/booking?package=Diamond",
+    note: "8-Hour Event | V Hall + N Hall + S Hall",
+    href: "/booking?package=Diamond&hall=vns-hall",
     featured: true,
 
     features: [
       "Non-AC package",
-      "Full-day Venus Hall booking",
-      "Most rated and highly recommended hall",
+      "8-hour event booking",
+      "V Hall + N Hall + S Hall",
       "Premium decor and stage setup",
-      "Spacious guest seating arrangement",
-      "Dedicated dining area planning",
-      "Ideal for grand weddings and receptions",
+      "Spacious guest seating and dedicated dining",
+      "Ample parking",
+      "Valet parking available",
     ],
   },
 ];
