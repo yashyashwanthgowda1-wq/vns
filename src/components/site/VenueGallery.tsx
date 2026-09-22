@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Tangerine } from "next/font/google";
 import { useCallback, useEffect, useState } from "react";
-import { ChevronLeft, ChevronRight, Expand } from "lucide-react";
+import { ChevronLeft, ChevronRight, Expand, FileText } from "lucide-react";
 
 import { Dialog, DialogContent, DialogDescription, DialogTitle } from "@/components/ui/dialog";
 import { cn } from "@/lib/utils";
@@ -76,6 +76,17 @@ export function VenueGallery({ gallery }: { gallery: VenueGalleryData }) {
             <p className="mt-3 text-sm uppercase tracking-[0.18em] text-gold">
               {gallery.images.length} venue photographs
             </p>
+            {gallery.profilePdf && (
+              <a
+                href={gallery.profilePdf}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex min-h-11 items-center gap-2 border border-gold px-4 py-2 text-sm font-medium uppercase tracking-[0.14em] text-gold transition hover:bg-gold hover:text-ink focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold focus-visible:ring-offset-4 focus-visible:ring-offset-ink"
+              >
+                <FileText className="h-4 w-4" aria-hidden="true" />
+                View Profile PDF
+              </a>
+            )}
           </div>
         </div>
 

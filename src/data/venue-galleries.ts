@@ -8,6 +8,7 @@ export type VenueGallery = {
   slug: "v-hall" | "n-hall" | "s-hall" | "vns-hall";
   name: string;
   intro: string;
+  profilePdf?: string;
   images: VenueGalleryImage[];
 };
 
@@ -60,6 +61,7 @@ export const venueGalleries: Record<VenueGallery["slug"], VenueGallery> = {
     name: "N Hall",
     intro:
       "An open-air lawn and covered celebration space designed for ceremonies, receptions and flexible guest layouts.",
+    profilePdf: "/profiles/venus-park-n-hall-final.pdf",
     images: [
       {
         src: "/venues/n-hall/n-hall-details.png",
@@ -116,6 +118,16 @@ export const venueGalleries: Record<VenueGallery["slug"], VenueGallery> = {
         label: "Parking",
         alt: "Parking area in front of Venus Park and Convention Centre",
       },
+      {
+        src: "/venues/n-hall/n-hall-kitchen.webp",
+        label: "Kitchen",
+        alt: "Panoramic view of the kitchen serving N Hall",
+      },
+      {
+        src: "/venues/n-hall/n-hall-room-near-stage.webp",
+        label: "Room Near the Stage",
+        alt: "Guest room near the N Hall stage with an attached restroom",
+      },
     ],
   },
   "s-hall": {
@@ -123,6 +135,7 @@ export const venueGalleries: Record<VenueGallery["slug"], VenueGallery> = {
     name: "S Hall",
     intro:
       "A grand indoor hall with dramatic chandeliers, an expansive stage and dedicated dining, kitchen and guest facilities.",
+    profilePdf: "/profiles/venus-park-s-hall-final.pdf",
     images: [
       {
         src: "/venues/s-hall/s-hall-details.png",
@@ -179,6 +192,26 @@ export const venueGalleries: Record<VenueGallery["slug"], VenueGallery> = {
         label: "Parking Overview",
         alt: "Aerial overview of the S Hall parking area",
       },
+      {
+        src: "/venues/s-hall/s-hall-ac-room-near-stage-1.webp",
+        label: "AC Room Near the Stage",
+        alt: "First view of an air-conditioned guest room near the S Hall stage",
+      },
+      {
+        src: "/venues/s-hall/s-hall-ac-room-near-stage-2.webp",
+        label: "AC Room Near the Stage",
+        alt: "Second view of an air-conditioned guest room near the S Hall stage",
+      },
+      {
+        src: "/venues/s-hall/s-hall-ac-room-restrooms.webp",
+        label: "AC Room Restrooms",
+        alt: "Restrooms provided for the two air-conditioned rooms near the S Hall stage",
+      },
+      {
+        src: "/venues/s-hall/s-hall-upper-level-non-ac-room.webp",
+        label: "Upper-Level Non-AC Room",
+        alt: "Non-air-conditioned guest room on the upper level of S Hall",
+      },
     ],
   },
   "vns-hall": {
@@ -186,6 +219,7 @@ export const venueGalleries: Record<VenueGallery["slug"], VenueGallery> = {
     name: "VNS Hall",
     intro:
       "The complete Venus Park experience, bringing V Hall, N Hall and S Hall together for an elegant 8-hour event.",
+    profilePdf: "/profiles/venus-park-vns-hall-final.pdf",
     images: [
       {
         src: "/venues/vns-hall/vns-hall-details.png",
@@ -236,6 +270,16 @@ export const venueGalleries: Record<VenueGallery["slug"], VenueGallery> = {
         src: "/venues/vns-hall/vns-hall-parking.webp",
         label: "Parking",
         alt: "Parking area in front of Venus Park and Convention Centre",
+      },
+      {
+        src: "/venues/vns-hall/vns-hall-n-room-near-stage.webp",
+        label: "N Hall Room Near the Stage",
+        alt: "Guest room near the N Hall stage included in the VNS Hall profile",
+      },
+      {
+        src: "/venues/vns-hall/vns-hall-s-ac-room-near-stage.webp",
+        label: "S Hall AC Room Near the Stage",
+        alt: "Air-conditioned guest room near the S Hall stage included in the VNS Hall profile",
       },
     ],
   },
