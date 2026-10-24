@@ -4,11 +4,19 @@ export type VenueGalleryImage = {
   alt: string;
 };
 
+export type VenueGalleryVideo = {
+  src: string;
+  poster: string;
+  label: string;
+  alt: string;
+};
+
 export type VenueGallery = {
   slug: "v-hall" | "n-hall" | "s-hall" | "vns-hall";
   name: string;
   intro: string;
   profilePdf?: string;
+  heroVideo?: VenueGalleryVideo;
   images: VenueGalleryImage[];
 };
 
@@ -18,6 +26,12 @@ export const venueGalleries: Record<VenueGallery["slug"], VenueGallery> = {
     name: "V Hall",
     intro:
       "A welcoming indoor-outdoor setting for intimate celebrations, with dedicated support spaces and easy guest access.",
+    heroVideo: {
+      src: "/video/v-hall-birthday-reel-1080p.mp4",
+      poster: "/video/v-hall-birthday-reel-poster.webp",
+      label: "Birthday Celebration Reel",
+      alt: "Video highlights of a birthday celebration hosted at V Hall",
+    },
     images: [
       {
         src: "/venues/v-hall/v-hall-details.png",
@@ -25,14 +39,49 @@ export const venueGalleries: Record<VenueGallery["slug"], VenueGallery> = {
         alt: "V Hall package price, duration, capacity and facilities",
       },
       {
-        src: "/venues/v-hall/v-hall-celebration-entrance.webp",
-        label: "Celebration Entrance",
-        alt: "Draped celebration entrance and dining setup at V Hall",
+        src: "/venues/v-hall/v-hall-birthday-01.webp",
+        label: "Illuminated Welcome Pathway",
+        alt: "Stone pathway framed by green and ivory drapes and fairy lights, leading to a balloon arch at V Hall",
       },
       {
-        src: "/venues/v-hall/v-hall-event-setup.webp",
-        label: "Event Setup",
-        alt: "Evening event seating and illuminated entrance at V Hall",
+        src: "/venues/v-hall/v-hall-birthday-02.webp",
+        label: "Balloon Arch Entrance",
+        alt: "Green, white and gold balloon arch with a welcome board at the V Hall birthday entrance",
+      },
+      {
+        src: "/venues/v-hall/v-hall-birthday-03.webp",
+        label: "Birthday Stage & Backdrop",
+        alt: "Birthday stage with a printed backdrop and balloon garland styled in green and gold at V Hall",
+      },
+      {
+        src: "/venues/v-hall/v-hall-birthday-04.webp",
+        label: "Canopy of Greenery",
+        alt: "Birthday stage beneath a ceiling of hanging greenery, woven lanterns and warm lights at V Hall",
+      },
+      {
+        src: "/venues/v-hall/v-hall-birthday-05.webp",
+        label: "Children's Celebration",
+        alt: "Children gathered near the stage during a birthday celebration at V Hall",
+      },
+      {
+        src: "/venues/v-hall/v-hall-birthday-06.webp",
+        label: "Guest Seating",
+        alt: "Guests seated on clear chairs facing the stage beneath decorative ceiling lights at V Hall",
+      },
+      {
+        src: "/venues/v-hall/v-hall-birthday-07.webp",
+        label: "Seating Aisle",
+        alt: "Central aisle between rows of event seating leading to the stage at V Hall",
+      },
+      {
+        src: "/venues/v-hall/v-hall-birthday-08.webp",
+        label: "Banquet Table Layout",
+        alt: "Long banquet tables with white skirting and gold runners arranged along the V Hall dining area",
+      },
+      {
+        src: "/venues/v-hall/v-hall-birthday-09.webp",
+        label: "Dining Hall Interior",
+        alt: "Covered V Hall dining interior with parallel banquet tables and patterned carpet",
       },
       {
         src: "/venues/v-hall/v-hall-kitchen.webp",
@@ -43,16 +92,6 @@ export const venueGalleries: Record<VenueGallery["slug"], VenueGallery> = {
         src: "/venues/v-hall/v-hall-annexe.webp",
         label: "Annexe",
         alt: "Panoramic view of the V Hall annexe and hand-wash area",
-      },
-      {
-        src: "/venues/v-hall/v-hall-washroom-hand-wash.webp",
-        label: "Washroom & Hand Wash",
-        alt: "Exterior of the V Hall washroom and hand-wash facilities",
-      },
-      {
-        src: "/venues/v-hall/v-hall-parking.webp",
-        label: "Parking",
-        alt: "Parking area in front of Venus Park and Convention Centre",
       },
     ],
   },
