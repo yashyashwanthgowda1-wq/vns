@@ -90,6 +90,26 @@ export function VenueGallery({ gallery }: { gallery: VenueGalleryData }) {
           </div>
         </div>
 
+        {gallery.heroVideo && (
+          <figure className="mt-8 border border-ivory/15 bg-black">
+            <video
+              src={gallery.heroVideo.src}
+              poster={gallery.heroVideo.poster}
+              aria-label={gallery.heroVideo.alt}
+              controls
+              playsInline
+              preload="none"
+              className="aspect-video w-full bg-black object-contain"
+            />
+            <figcaption className="px-5 py-4 sm:px-6">
+              <span className="block text-xs uppercase tracking-[0.2em] text-gold">Watch</span>
+              <span className="mt-1 block font-display text-2xl text-white">
+                {gallery.heroVideo.label}
+              </span>
+            </figcaption>
+          </figure>
+        )}
+
         <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-12 lg:gap-5">
           {gallery.images.map((image, index) => (
             <button
